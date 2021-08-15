@@ -1,0 +1,25 @@
+[
+    {
+        "icon": "bx bx-sad",
+        "count": "3%",
+        "title": "Bounce rate"
+    },
+    {
+        "icon": "bx bx-cart",
+        "count": "2,001",
+        "title": "Active shops"
+    },
+    {
+        "icon": "bx bx-dollar-circle",
+        "count": "$2,632",
+        "title": "Total income"
+    },
+    {
+        "count": "11,346",
+        "title": "Daily top"
+    },
+    {
+        "count": "80,711",
+        "title": "Monthly top"
+    }
+]
