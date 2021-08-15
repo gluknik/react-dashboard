@@ -18,65 +18,34 @@ import ThemeAction from '../redux/actions/ThemeAction'
 
 
 const chartOptions = {
-  chart: {
-    width: "100%",
-    height: '100%',
-    type: "bar"
-  },
-  plotOptions: {
-    bar: {
-      horizontal: true
-    }
-  },
-  dataLabels: {
-    enabled: false
-  },
-  stroke: {
-    width: 1,
-    colors: ["#fff"]
-  },
-  series: [
-    {
-      data: [44, 55, 41, 64, 22, 43, 21]
+  series: [{
+    name: 'series1',
+    data: [31, 40, 28, 51, 42, 109, 100]
+  }, {
+    name: 'series2',
+    data: [11, 32, 45, 32, 34, 52, 41]
+  }],
+  options: {
+    chart: {
+      height: 350,
+      type: 'area'
     },
-    {
-      data: [53, 32, 33, 52, 13, 44, 32]
-    }
-  ],
-  xaxis: {
-    categories: [
-      "Korea",
-      "Canada",
-      "Poland",
-      "Italy",
-      "France",
-      "Japan",
-      "China"
-    ]
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    xaxis: {
+      type: 'datetime',
+      categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+    },
+    tooltip: {
+      x: {
+        format: 'dd/MM/yy HH:mm'
+      },
+    },
   },
-  legend: {
-    position: "right",
-    verticalAlign: "top",
-    containerMargin: {
-      left: 35,
-      right: 60
-    }
-  },
-  responsive: [
-    {
-      breakpoint: 1000,
-      options: {
-        plotOptions: {
-          bar: {
-            horizontal: false
-          }
-        },
-        legend: {
-          position: "bottom"
-        }
-      }
-    }
-  ]
 }
 
 const topCustomers = {
@@ -243,7 +212,31 @@ const Dashboard = () => {
 
         </div>
         </div>
-        <div className="col-8">
+        <div className="col-6">
+          <div className="card full-height">
+            <div className="card__header">
+              <h3>Avg conversion rate</h3>
+            </div>
+            <div className="card__body">
+              <Chart
+                options={themeReducer === 'theme-node-dark' ? {
+                  ...chartOptions.options,
+                  theme: {mode: 'dark'}
+                } : {
+                  ...chartOptions.options,
+                  theme: {mode: 'light'}
+                }}
+                series={chartOptions.series}
+                type='line'
+                height='100%'
+              />
+            </div>
+            <div className="card__footer">
+              <Link to='/ '>view all metrics</Link>
+            </div>
+          </div>
+        </div>
+        <div className="col-6">
           <div className="card full-height">
             <div className="card__header">
               <h3>Avg conversion rate</h3>
