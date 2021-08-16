@@ -10,7 +10,7 @@ import StatusCard from '../components/status-card/StatusCard'
 
 import Table from '../components/table/Table'
 
-import Badge from '../components/badge/Badge'
+// import Badge from '../components/badge/Badge'
 
 import statusCards from '../assets/JsonData/status-card-data.json'
 
@@ -112,34 +112,37 @@ const renderCustomerBody = (item, index) => (
         <td>{item.order}</td>
       ) : ''
     }
-    
-    <td>{item.price}</td>
+    {
+      item.price ? (
+        <td>{item.price}</td>
+      ) : ''
+    }
   </tr>
 )
 
 
-const orderStatus = {
-  "shipping": "primary",
-  "pending": "warning",
-  "paid": "success",
-  "refund": "danger"
-}
+// const orderStatus = {
+//   "shipping": "primary",
+//   "pending": "warning",
+//   "paid": "success",
+//   "refund": "danger"
+// }
 
-const renderOrderHead = (item, index) => (
-  <th key={index}>{item}</th>
-)
+// const renderOrderHead = (item, index) => (
+//   <th key={index}>{item}</th>
+// )
 
-const renderOrderBody = (item, index) => (
-  <tr key={index}>
-    <td>{item.id}</td>
-    <td>{item.user}</td>
-    <td>{item.price}</td>
-    <td>{item.date}</td>
-    <td>
-      <Badge type={orderStatus[item.status]} content={item.status} />
-    </td>
-  </tr>
-)
+// const renderOrderBody = (item, index) => (
+//   <tr key={index}>
+//     <td>{item.id}</td>
+//     <td>{item.user}</td>
+//     <td>{item.price}</td>
+//     <td>{item.date}</td>
+//     <td>
+//       <Badge type={orderStatus[item.status]} content={item.status} />
+//     </td>
+//   </tr>
+// )
 
 const Dashboard = () => {
 
@@ -174,7 +177,7 @@ const Dashboard = () => {
         <div className="col-6">
           <div className="row">
           <div className="col-5">
-            <div className="card full-height">
+            <div className="card card-table-stretch">
             <div className="card__header">
               <h3>New customers</h3>
             </div>
@@ -192,7 +195,7 @@ const Dashboard = () => {
           </div>
         </div>
           <div className="col-7">
-            <div className="card full-height">
+            <div className="card card-table-stretch">
             <div className="card__header">
               <h3>top customers</h3>
             </div>

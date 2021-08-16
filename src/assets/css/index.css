@@ -153,3 +153,7 @@ input:focus {
     background-color: var(--main-color-orange);
     color: #fff;
 }
+
+.card-table-stretch {
+    height: calc(100% - 10px);
+}

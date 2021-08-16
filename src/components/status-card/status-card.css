@@ -74,4 +74,5 @@
 
 .status-card__icon img {
     max-width: 100%;
+    max-height: 48px;
 }
